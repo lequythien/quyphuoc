@@ -1,0 +1,197 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto; /* Căn giữa nội dung chính của trang */
+    font-family: Arial, sans-serif;
+    width: 1200px; /* Đặt chiều rộng trang */
+}
+
+/* Header Section */
+.header {
+    position: relative; /* Để nội dung bên trong header được định vị */
+    height: 600px; /* Chiều cao của header */
+    overflow: hidden; /* Đảm bảo không có phần dư nào hiển thị */
+}
+
+.header-image {
+    position: absolute; /* Đặt ảnh nằm phía sau */
+    top: 0;
+    left: 0;
+    width: 100%; /* Phủ toàn bộ chiều ngang */
+    height: 100%; /* Phủ toàn bộ chiều cao */
+    object-fit: cover; /* Giữ tỉ lệ ảnh và làm đầy khung */
+    z-index: -1; /* Đặt ảnh ở phía sau thanh menu */
+}
+
+.header h1 {
+    font-size: 36px;
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* Đặt tiêu đề phía trên ảnh */
+}
+
+.header p {
+    font-size: 18px;
+    margin: 10px 0 0;
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* Đặt đoạn văn phía trên ảnh */
+}
+
+/* Navbar */
+.navbar {
+    position: absolute; /* Đặt thanh menu trên ảnh */
+    top: 0; /* Đặt thanh menu sát trên cùng */
+    left: 50%; /* Đưa thanh menu về giữa màn hình theo chiều ngang */
+    transform: translateX(-50%); /* Căn chỉnh đúng trung tâm */
+    background: white; /* Màu nền trắng trong suốt */
+    padding: 10px 20px; /* Khoảng cách trong của thanh menu */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho thanh menu */
+    z-index: 10; /* Đảm bảo thanh menu nằm phía trên ảnh */
+    display: flex; /* Để các mục menu bên trong hiển thị theo hàng ngang */
+    justify-content: center; /* Căn giữa các mục menu bên trong */
+    width: 80%; /* Giới hạn chiều rộng của thanh menu (tuỳ chỉnh theo yêu cầu) */
+    max-width: 1200px; /* Giới hạn tối đa chiều ngang */
+    height: 60px;
+    border-radius: 0 0 20px 20px; /* Bo góc menu */
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center; /* Căn giữa các mục menu */
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-item a:hover {
+    color: #f60; /* Màu cam khi hover */
+}
+
+.nav-item.active a {
+    color: #f60; /* Màu cam cho mục đang được chọn */
+}
+
+.nav-item.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #f60; /* Màu cam cho gạch chân highlight */
+    border-radius: 5px;
+}
+
+/* Main Content Section */
+.main-content h1 {
+    color: #ee4d2d;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-content p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block; /* Đảm bảo kích thước khớp với nội dung bên trong */
+}
+
+.content-image {
+    width: 100%; /* Đảm bảo ảnh nền phủ đầy vùng chứa */
+    height: auto; /* Giữ nguyên tỷ lệ ảnh */
+    display: block; /* Loại bỏ khoảng cách thừa dưới ảnh */
+}
+
+.title-image {
+    position: absolute; /* Đặt tiêu đề chồng lên ảnh nền */
+    top: 30%; /* Căn giữa theo chiều dọc */
+    left: 15%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Căn chỉnh ảnh tiêu đề chính xác vào giữa */
+    width: 20%; /* Tùy chỉnh kích thước ảnh tiêu đề */
+}
+
+/* Content Container */
+.content-container {
+    display: flex; /* Sử dụng Flexbox để chia thành hàng */
+    justify-content: space-between; /* Khoảng cách đều giữa các phần */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 5px; /* Khoảng cách giữa các nhóm */
+}
+
+/* Nhóm 4 ảnh nhỏ */
+.small-images {
+    display: grid; /* Sử dụng Grid Layout */
+    grid-template-columns: repeat(2, 1fr); /* 2 cột */
+    grid-template-rows: repeat(2, 1fr); /* 2 hàng */
+    gap: 10px; /* Khoảng cách giữa các ảnh */
+    width: 50%; /* Tổng chiều rộng của khối */
+}
+
+.small-images img {
+    width: 100%; /* Đảm bảo mỗi ảnh vừa khớp ô Grid */
+    height: 100%; /* Căng ảnh để khớp với chiều cao */
+    object-fit: cover; /* Cắt ảnh để giữ tỷ lệ đẹp */
+}
+
+/* Ảnh ca sĩ và tiêu đề */
+.singer-section {
+    display: flex;
+    flex-direction: column; /* Xếp ảnh ca sĩ và tiêu đề theo cột */
+    align-items: center; /* Căn giữa cả ảnh và tiêu đề */
+    position: relative; /* Đặt phần tử chứa có tính chất relative để ảnh tiêu đề có thể đặt chính xác */
+    height: auto; /* Chiều cao tự động phù hợp với ảnh ca sĩ */
+}
+
+.singer-image {
+    height: auto; /* Giữ nguyên tỷ lệ */
+}
+
+.singer-title {
+    position: absolute; /* Đặt tiêu đề chồng lên ảnh */
+    top: 40px; /* Khoảng cách từ trên xuống */
+    left: 20%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Đưa tiêu đề vào chính giữa */
+    width: 30%; /* Điều chỉnh kích thước của tiêu đề */
+    height: auto; /* Chiều cao tự động */
+    z-index: 1; /* Đảm bảo tiêu đề nằm trên ảnh */
+    border-radius: 5px; /* Bo góc cho tiêu đề */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho tiêu đề */
+}
+
+/* Footer Section */
+.footer {
+    display: flex; /* Kích hoạt Flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc (nếu cần) */
+    height: 200px; /* Chiều cao của footer */
+    width: 100%; /* Chiều rộng toàn màn hình */
+    background-color: #333; /* Màu nền footer (tùy chỉnh) */
+    margin-top: 50px;
+}
+
+.footer img {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của màn hình */
+    height: auto; /* Giữ nguyên tỷ lệ ảnh */
+}
